@@ -1,11 +1,19 @@
+# KASM Workspace VPS with Cloudflare WAF, Two Factor, and SSL Enabled.
+
+## What is KASM Workspace
+The Workspaces platform provides enterprise-class orchestration, data loss prevention, and web streaming technology to enable the delivery of containerized workloads to your browser.
+- Demo: https://www.kasmweb.com/#dialog-2
+
+### Requirements: 
+- Create Oracle Cloud Free Tier Account - https://jaredbach.io/creating-a-free-tier-oracle-cloud-account-7bce9ea230b8?gi=c562a2cf276
+- CloudFlare Account
+- Domain Name
+
+1. Provision the following ARM64 VM
 We will be using ARM64 VM in this build. Note: Some containers are not compatible with ARM64 or don't have a build yet.
 Images: https://kasmweb.com/docs/latest/guide/custom_images.html
+Guide: https://cybertoffy.com/kasm-workspace-on-oracle-cloud/
 
-Requirements: 
-- Create Oracle Cloud Free Tier Account - https://jaredbach.io/creating-a-free-tier-oracle-cloud-account-7bce9ea230b8?gi=c562a2cf276
-
-1. Provision the following VM
-https://cybertoffy.com/kasm-workspace-on-oracle-cloud/
 ```
 Operating System: Ubuntu 22.04
 Shape configuration
@@ -32,7 +40,14 @@ tar -xf kasm_release*.tar.gz
 sudo bash kasm_release/install.sh
 ```
 
-3. Copy the credentials into your password manager, login using IP:443. Enable 2FA - https://kasmweb.com/docs/latest/guide/two_factor.html
+3. Copy the credentials into your password manager, login using IP:443. 
+
+- Enable 2FA - https://kasmweb.com/docs/latest/guide/two_factor.html
+- Create new administrator account, add to administrator, login and enable 2FA.
+- Create new regular non-priv account, login and enable 2FA.
+- Delete default administrator and user account.
+
+
 4. Since we are using ARM64, Kali Linux will not be enabled by default. 
 ```
 docker pull kasmweb/core-kali-rolling:develop-rolling
@@ -87,3 +102,4 @@ sudo /opt/kasm/bin/start
 ```
 11. Wait for 10 minutes, clear history on your browser and try accessing your https://domain.com. It should now have a full SSL. 
 12. As noted, its best to use a reverse Proxy (Nginx Proxy Manager) to apply Authenticated Origin Pull, thus allowing CF only traffic to your VPS. Direct IP access is prohibited from non CF, and prevents IP leaks. - https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/
+13. Apply CloudFlare WAF Security rules to block specific locations GeoIP, Known Bots, High Risk ASN or IPs.
