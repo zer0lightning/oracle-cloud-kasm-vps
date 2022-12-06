@@ -93,8 +93,8 @@ sudo /opt/kasm/bin/stop
 ```
 Replace kasm_nginx.crt and kasm_nginx.key files
 ```
-sudo cp <your_cert> /opt/kasm/current/certs/kasm_nginx.crt
-sudo cp <your_key> /opt/kasm/current/certs/kasm_nginx.key
+sudo cp kasm_nginx.pem /opt/kasm/current/certs/kasm_nginx.crt
+sudo cp kasm_nginx.key /opt/kasm/current/certs/kasm_nginx.key
 ```
 Start the Kasm Services
 ```
