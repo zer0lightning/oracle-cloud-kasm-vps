@@ -1,6 +1,8 @@
-We will be using ARM64 VM in this build.
+We will be using ARM64 VM in this build. Note: Some containers are not compatible with ARM64 or don't have a build yet.
+Images: https://kasmweb.com/docs/latest/guide/custom_images.html
 
-Requirements: Oracle Cloud Free Tier Account - https://jaredbach.io/creating-a-free-tier-oracle-cloud-account-7bce9ea230b8?gi=c562a2cf276
+Requirements: 
+- Create Oracle Cloud Free Tier Account - https://jaredbach.io/creating-a-free-tier-oracle-cloud-account-7bce9ea230b8?gi=c562a2cf276
 
 1. Provision the following VM
 https://cybertoffy.com/kasm-workspace-on-oracle-cloud/
@@ -66,4 +68,22 @@ sudo apt update
 ping google.ca
 ```
 
-8. Buy domain, add to Cloudflare for WAF, and generate SSL Certificate (recommended).
+8. Buy domain, add to Cloudflare for WAF, and generate SSL Certificate (recommended). -
+9. Generate Cloudflare Origin CA Certificate - save it as kasm_nginx.pem and kasm_nginx.key. - https://developers.cloudflare.com/ssl/origin-configuration/origin-ca/
+10. Copy these files to a tmp folder in your server, and follow this guide. - https://kasmweb.com/docs/latest/how_to/certificates.html
+
+Stop the Kasm Services
+```
+sudo /opt/kasm/bin/stop
+```
+Replace kasm_nginx.crt and kasm_nginx.key files
+```
+sudo cp <your_cert> /opt/kasm/current/certs/kasm_nginx.crt
+sudo cp <your_key> /opt/kasm/current/certs/kasm_nginx.key
+```
+Start the Kasm Services
+```
+sudo /opt/kasm/bin/start
+```
+11. Wait for 10 minutes, clear history on your browser and try accessing your https://domain.com. It should now have a full SSL. 
+12. As noted, its best to use a reverse Proxy (Nginx Proxy Manager) to apply Authenticated Origin Pull, thus allowing CF only traffic to your VPS. Direct IP access is prohibited from non CF, and prevents IP leaks. - https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/
