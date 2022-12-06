@@ -37,6 +37,24 @@ docker pull kasmweb/core-kali-rolling:develop-rolling
 ```
 6. In the interface, proceed to Workspaces > Add
 7. Follow the step 5 in this guide - https://www.blog.techraj156.com/post/installing-kasm-workspaces-and-setting-up-kali-linux-for-penetration-testing
+```
+Docker Image: kasmweb/core-kali-rolling:develop-rolling
+Description: Kali Linux is an open-source, Debian-based Linux distribution geared towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.
+Friendly Name: Kali Linux
+Thumbnail URL: img/thumbnails/kali.png
+Cores: 2
+Memory: 3768 GB
+GPU Count: 0
+CPU Allocation Method: Inherit
+Enabled: Yes
+Docker Registry: https://index.docker.io/v1/
+Volume Mappings: {}
+Run Config: {"user":"root","cap_add":["NET_ADMIN"],"devices":["dev/net/tun","/dev/net/tun"],"privileged":true}
+Exec Config: 
+Categories: 
+Security
+Desktop
+```
 8. When running Kali container, run these commands inside the container to fix some depedancies. (or create a custom docker build).
 
 ```
