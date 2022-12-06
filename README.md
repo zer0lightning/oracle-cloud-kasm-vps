@@ -86,7 +86,7 @@ ping google.ca
 
 8. Buy domain, add to Cloudflare for WAF, and generate SSL Certificate (recommended). -
 9. Generate Cloudflare Origin CA Certificate - save it as kasm_nginx.pem and kasm_nginx.key. - https://developers.cloudflare.com/ssl/origin-configuration/origin-ca/
-10. Copy these files to a tmp folder in your server, and follow this guide. - https://kasmweb.com/docs/latest/how_to/certificates.html
+10. Copy these files to a tmp folder in your server, and follow this guide. - https://kasmweb.com/docs/latest/how_to/certificates.html. If you are using a reverse proxy use this link instead https://kasmweb.com/docs/latest/how_to/reverse_proxy.html
 
 Stop the Kasm Services
 ```
