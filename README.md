@@ -1,7 +1,10 @@
 We will be using ARM64 VM in this build.
 
+Requirements: Oracle Cloud Free Tier Account - https://jaredbach.io/creating-a-free-tier-oracle-cloud-account-7bce9ea230b8?gi=c562a2cf276
+
 1. Provision the following VM
 https://cybertoffy.com/kasm-workspace-on-oracle-cloud/
+```
 Operating System: Ubuntu 22.04
 Shape configuration
 Shape: VM.Standard.A1.Flex
@@ -9,6 +12,7 @@ OCPU count: 4
 Network bandwidth (Gbps): 4
 Memory (GB): 24
 Local disk: 100GB
+```
 
 2. Download SSH Keypair (and convert). SSH into the VM and run the following using key and IP.
 https://tecadmin.net/convert-ppk-to-pem-using-command/
