@@ -32,9 +32,12 @@ sudo bash kasm_release/install.sh
 
 3. Copy the credentials into your password manager, login using IP:443
 4. Since we are using ARM64, Kali Linux will not be enabled by default. 
-5. In the interface, proceed to Workspaces > Add
-6. Follow the step 5 in this guide - https://www.blog.techraj156.com/post/installing-kasm-workspaces-and-setting-up-kali-linux-for-penetration-testing
-7. When running Kali container, run these commands inside the container to fix some depedancies. (or create a custom docker build).
+```
+docker pull kasmweb/core-kali-rolling:develop-rolling
+```
+6. In the interface, proceed to Workspaces > Add
+7. Follow the step 5 in this guide - https://www.blog.techraj156.com/post/installing-kasm-workspaces-and-setting-up-kali-linux-for-penetration-testing
+8. When running Kali container, run these commands inside the container to fix some depedancies. (or create a custom docker build).
 
 ```
 sudo apt install iputils-* --y 
