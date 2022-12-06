@@ -10,9 +10,10 @@ The Workspaces platform provides enterprise-class orchestration, data loss preve
 - Domain Name
 
 1. Provision the following ARM64 Virtual Machine.
+
 Note: Some containers are not compatible with ARM64 or don't have a build yet.
-Images: https://kasmweb.com/docs/latest/guide/custom_images.html
-Guide: https://cybertoffy.com/kasm-workspace-on-oracle-cloud/
+- Images: https://kasmweb.com/docs/latest/guide/custom_images.html
+- Guide: https://cybertoffy.com/kasm-workspace-on-oracle-cloud/
 
 ```
 Operating System: Ubuntu 22.04
