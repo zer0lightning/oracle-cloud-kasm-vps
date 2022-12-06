@@ -30,7 +30,7 @@ tar -xf kasm_release*.tar.gz
 sudo bash kasm_release/install.sh
 ```
 
-3. Copy the credentials into your password manager, login using IP:443
+3. Copy the credentials into your password manager, login using IP:443. Enable 2FA - https://kasmweb.com/docs/latest/guide/two_factor.html
 4. Since we are using ARM64, Kali Linux will not be enabled by default. 
 ```
 docker pull kasmweb/core-kali-rolling:develop-rolling
