@@ -26,7 +26,7 @@ Local disk: 100GB
 ```
 
 2. Download SSH Keypair (and convert). SSH into the VM and run the following using key and IP.
-https://tecadmin.net/convert-ppk-to-pem-using-command/
+https://tecadmin.net/convert-ppk-to-pem-using-command/, then run the following to setup KASM.
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 sudo dd if=/dev/zero bs=1M count=2048 of=/mnt/2GiB.swap
