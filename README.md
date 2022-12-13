@@ -104,3 +104,52 @@ sudo /opt/kasm/bin/start
 11. Wait for 10 minutes, clear history on your browser and try accessing your https://domain.com. It should now have a full SSL. 
 12. As noted, its best to use a reverse Proxy (Nginx Proxy Manager) to apply Authenticated Origin Pull, thus allowing CF only traffic to your VPS. Direct IP access is prohibited from non CF, and prevents IP leaks. - https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/
 13. Apply CloudFlare WAF Security rules to block specific locations GeoIP, Known Bots, High Risk ASN or IPs.
+
+## Hardening.
+1. Install Fail2Ban - https://webdock.io/en/docs/how-guides/security-guides/how-configure-fail2ban-common-services
+```
+sudo apt install fail2ban -y
+sudo systemctl status fail2ban
+sudo nano /etc/fail2ban/jail.d/sshd.conf
+```
+
+```
+[sshd]
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 3
+bantime = 120
+ignoreip = whitelist-IP
+````
+Restart SSH Service
+```
+sudo systemctl restart fail2ban
+```
+How to Check the Status of Jail
+```
+sudo fail2ban-client status sshd
+```
+
+2. Install CrowdSec and CrowdSec Firewall Bouncer (iptables)
+```
+curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
+sudo apt-get update
+sudo apt-get install crowdsec
+sudo apt install crowdsec-firewall-bouncer-iptables
+```
+
+3. Enroll bouncer to CrowdSec CLI Web Console
+- Register Account: https://crowdsec.net
+- Click add instance: https://app.crowdsec.net/instances
+- Copy the ```sudo cscli console enroll random-string code``` to your SSH session
+
+4. Update and restart the process
+```
+sudo cscli hub upgrade
+sudo cscli hub update
+sudo systemctl reload crowdsec
+```
+
+5. Give the web console 5-30 minutes for all the changes to appear. Bouncer appears to be 0 for a bit.
