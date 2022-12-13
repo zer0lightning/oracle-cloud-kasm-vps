@@ -145,7 +145,7 @@ sudo apt install crowdsec-firewall-bouncer-iptables
 3. Enroll bouncer to CrowdSec CLI Web Console
 - Register Account: https://crowdsec.net
 - Click add instance: https://app.crowdsec.net/instances
-- Copy the ```sudo cscli console enroll random-string code``` to your SSH session
+- Copy the ```sudo cscli console enroll random-string``` to your SSH session
 
 4. Update and restart the process
 ```
