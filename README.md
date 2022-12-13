@@ -1,4 +1,4 @@
-# KASM Workspace VPS with Cloudflare WAF, Two Factor, and SSL Enabled.
+# KASM Workspace VPS with Cloudflare WAF, Two Factor, SSL Certificate and CrowdSec IPS
 
 ## What is KASM Workspace
 The Workspaces platform provides enterprise-class orchestration, data loss prevention, and web streaming technology to enable the delivery of containerized workloads to your browser.
@@ -105,7 +105,7 @@ sudo /opt/kasm/bin/start
 12. As noted, its best to use a reverse Proxy (Nginx Proxy Manager) to apply Authenticated Origin Pull, thus allowing CF only traffic to your VPS. Direct IP access is prohibited from non CF, and prevents IP leaks. - https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/
 13. Apply CloudFlare WAF Security rules to block specific locations GeoIP, Known Bots, High Risk ASN or IPs.
 
-## Hardening.
+## Hardening
 1. Install Fail2Ban - https://webdock.io/en/docs/how-guides/security-guides/how-configure-fail2ban-common-services
 ```
 sudo apt install fail2ban -y
