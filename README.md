@@ -6,8 +6,7 @@ The Workspaces platform provides enterprise-class orchestration, data loss preve
 
 ### Requirements: 
 - Create Oracle Cloud Free Tier Account - https://jaredbach.io/creating-a-free-tier-oracle-cloud-account-7bce9ea230b8?gi=c562a2cf276
-- CloudFlare Account
-- Domain Name
+- CloudFlare Account and Domain Name - https://developers.cloudflare.com/registrar/get-started/transfer-domain-to-cloudflare/
 
 1. Provision the following ARM64 Virtual Machine.
 
