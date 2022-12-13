@@ -106,7 +106,8 @@ sudo /opt/kasm/bin/start
 13. Apply CloudFlare WAF Security rules to block specific locations GeoIP, Known Bots, High Risk ASN or IPs.
 
 ## Hardening
-1. Install Fail2Ban - https://webdock.io/en/docs/how-guides/security-guides/how-configure-fail2ban-common-services
+1. Install Fail2Ban
+Source: https://webdock.io/en/docs/how-guides/security-guides/how-configure-fail2ban-common-services
 ```
 sudo apt install fail2ban -y
 sudo systemctl status fail2ban
@@ -133,6 +134,7 @@ sudo fail2ban-client status sshd
 ```
 
 2. Install CrowdSec and CrowdSec Firewall Bouncer (iptables)
+Related Source: https://www.smarthomebeginner.com/crowdsec-docker-compose-1-fw-bouncer/
 ```
 curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
 sudo apt-get update
